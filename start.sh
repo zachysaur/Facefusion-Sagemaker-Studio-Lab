@@ -33,6 +33,7 @@ then
   pip install -r requirements.txt
   cd ..
   pip install pyngrok
+  pip install psutil # Add this line
   conda install opencv -y
   conda install ffmpeg
 fi
