@@ -12,9 +12,9 @@ fi
 conda activate facefusion
 
 # Get Facefusion from GitHub
-if [ ! -d "facefusion" ]
+if [ ! -d "facefusion-unlocked" ]
 then
-  git clone https://github.com/facefusion/facefusion 
+  git clone https://github.com/hassan-sd/facefusion-unlocked.git 
 fi
 
 # Update the installation if the parameter "update" was passed by running
@@ -29,7 +29,7 @@ fi
 # Install the required packages if the environment needs to be freshly installed or updated 
 if [ $# -eq 1 ] && [ $1 = "update" ] || [ $env_exists = 0 ]
 then
-  cd facefusion
+  cd facefusion-unlocked
   pip install -r requirements.txt
   cd ..
   pip install pyngrok
@@ -41,10 +41,10 @@ fi
 # Start facefusion with ngrok
 if [ $# -eq 0 ]
 then
-  cd $cwd/facefusion
+  cd $cwd/facefusion-unlocked
   python ../start-with-tunnel.py 
 elif [ $1 = "reset" ]
 then
-  cd $cwd/facefusion
+  cd $cwd/facefusion-unlocked
   python ../start-with-tunnel.py --reset 
 fi
